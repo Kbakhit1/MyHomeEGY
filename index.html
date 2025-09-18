@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY HOME EGY - الخطة التنفيذية والميزانية</title>
+    <!-- Chosen Palette: Calm & Assured (#0B3C5D, #328CC1, #D9B310, #1D2731, F0F4F8) -->
+    <!-- Application Structure Plan: The SPA is now structured as a comprehensive operational playbook. A new, central section, "Detailed Operational Budget," has been added, which is the core of this update. The plan flows from a high-level strategy (Phase 1 goals) to the granular financial commitments needed to achieve it (the new budget section), and then outlines the long-term vision (Phase 2). This structure was chosen to directly answer the user's request for a detailed, category-specific budget, making the plan a practical tool for financial management and resource allocation from day one. -->
+    <!-- Visualization & Content Choices: 
+        - Phase 1 Operational Strategy: Goal: Inform. Method: Detailed text sections. Justification: Heavily revised to reflect the new freelancer-based staffing model and the two-stage office strategy (Haram then Tagamoa/Zayed), as requested.
+        - Detailed Operational Budget (New Section): Goal: Inform/Organize. Method: A structured HTML table-like layout. Justification: This provides the most clarity for a detailed, line-item budget, which is more effective than a chart for showing specific financial figures as requested by the user.
+        - Financial Model Charts: Goal: Compare/Inform. Method: A new interactive chart option, "First Year Budget Breakdown" (Stacked Bar Chart via Chart.js), was added. Justification: This new visualization complements the detailed budget table by providing a quick, graphical overview of how expenses are distributed across quarters, clearly showing the impact of rent starting in Q3.
+        - Execution Roadmap: Goal: Organize/Change. Method: The HTML timeline has been updated to include specific operational milestones like "Establish Freelancer Network" and "Secure New Office Lease." Justification: This makes the roadmap a more accurate reflection of the updated operational plan.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0B3C5D;
+            --secondary: #328CC1;
+            --accent: #D9B310;
+            --dark: #1D2731;
+            --light: #F0F4F8;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--light); }
+        .chart-container { position: relative; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; height: 45vh; max-height: 500px; }
+        .sidebar-link { transition: all 0.3s ease; border-right: 4px solid transparent; }
+        .sidebar-link.active { background-color: var(--primary); color: white; border-right-color: var(--accent); }
+        .stat-card { background-color: white; border-bottom: 5px solid var(--secondary); }
+        .btn-filter { transition: all 0.3s ease; }
+        .btn-filter.active { background-color: var(--primary); color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .roadmap-phase { border-right: 4px solid var(--primary); padding-right: 1.5rem; position: relative; }
+        .roadmap-phase::before {
+            content: ''; position: absolute; top: 0; right: -12px; width: 22px; height: 22px; border-radius: 50%;
+            background-color: var(--accent); border: 4px solid var(--light);
+        }
+        .budget-item { border-bottom: 1px solid #e5e7eb; }
+        .budget-item:last-child { border-bottom: none; }
+    </style>
+</head>
+<body class="text-gray-800">
+    <div class="flex">
+        <aside class="w-72 bg-gray-800 text-white min-h-screen p-4 fixed top-0 right-0 hidden md:block">
+            <div class="text-center py-4">
+                <h1 class="text-2xl font-bold text-white">MY HOME EGY</h1>
+                <p class="text-sm text-gray-400">الخطة التنفيذية والميزانية</p>
+            </div>
+            <nav id="sidebar-nav" class="mt-8">
+                <a href="#summary" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">الموجز التنفيذي</a>
+                <a href="#phase1" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">المرحلة الأولى: الاستراتيجية</a>
+                <a href="#budget" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">الميزانية التشغيلية المفصلة</a>
+                <a href="#phase2" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">المرحلة الثانية: التوسع</a>
+                <a href="#financials" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">النموذج المالي المرئي</a>
+                <a href="#roadmap" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">خارطة الطريق التنفيذية</a>
+            </nav>
+        </aside>
+
+        <main class="w-full md:mr-72 p-4 sm:p-8">
+            <section id="summary" class="min-h-screen pt-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">الموجز التنفيذي: استراتيجية الانطلاق المرن</h2>
+                <p class="mb-8 text-gray-700 leading-relaxed">تعتمد هذه الخطة المحدثة على مبدأ "الانطلاق المرن" (Lean Startup)، حيث يتم تقليل النفقات الثابتة الأولية إلى أقصى حد لتعظيم الاستثمار في قنوات النمو المباشر. <strong>خلال الأشهر الستة الأولى</strong>، سنعمل من مكتب قائم وبدون موظفين تصميم بدوام كامل، مع تركيز 100% من الموارد المالية على التسويق الرقمي الفعال، تطوير الموقع الإلكتروني، وشراء أفضل برامج التصميم. هذا النهج يضمن إدارة ممتازة للتدفقات النقدية، ويسمح للشركة ببناء قاعدة عملاء قوية قبل الانتقال إلى مكتب جديد وتوسيع الفريق في <strong>الشهر السابع</strong>.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <h3 class="text-gray-500 font-bold">نموذج العمل الأولي</h3>
+                        <p class="text-2xl font-extrabold mt-2" style="color: var(--primary);">مصممون مستقلون (Freelance)</p>
+                    </div>
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <h3 class="text-gray-500 font-bold">إيجار المكتب (أول 6 أشهر)</h3>
+                        <p class="text-3xl font-extrabold mt-2" style="color: var(--primary);">0 جنيه</p>
+                    </div>
+                    <div class="stat-card p-6 rounded-lg shadow-md">
+                        <h3 class="text-gray-500 font-bold">التركيز الاستثماري الأساسي</h3>
+                        <p class="text-2xl font-extrabold mt-2" style="color: var(--primary);">التسويق الرقمي والتكنولوجيا</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="phase1" class="min-h-screen pt-20">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">المرحلة الأولى: استراتيجية الهيمنة على سوق الفئة فوق المتوسطة</h2>
+                <p class="mb-8 text-gray-700">هذه هي مرحلة بناء الأساس الصلب. سنوظف خبرتنا السابقة مع هذه الشريحة، مع تطبيق نموذج عمل محدث وأكثر كفاءة لضمان تحقيق أسرع اختراق ممكن للسوق.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-accent pr-3">1. الاستراتيجية التشغيلية المفصلة</h3>
+                         <ul class="list-disc list-inside space-y-2 text-gray-700">
+                             <li><strong>نموذج التوظيف:</strong> الاعتماد بشكل كامل على شبكة من مهندسي التصميم الداخلي المستقلين (Freelancers) الذين يتمتعون بموهبة وخبرة مثبتة. يتم التعاقد معهم على أساس كل مشروع على حدة، مما يوفر مرونة هائلة ويحول التكاليف الثابتة (الرواتب) إلى تكاليف متغيرة مرتبطة مباشرة بالإيرادات.</li>
+                             <li><strong>استراتيجية المقر الإداري:</strong>
+                                <ul class="list-['-_'] list-inside pr-4 mt-2 space-y-1">
+                                    <li><strong>الأشهر 1-6:</strong> استخدام المكتب القديم القائم بمنطقة الهرم لإتمام الإجراءات الورقية والتعاقدات فقط. لن يتم استقبال عملاء في هذا المقر. هذه الخطوة تلغي تماماً تكلفة الإيجار والمصاريف المرتبطة به في الفترة الحرجة الأولى.</li>
+                                    <li><strong>بداية من الشهر السابع:</strong> البدء في استئجار مكتب تمثيلي (Showroom Office) بمساحة صغيرة ولكن في موقع حيوي ومناسب للشريحة المستهدفة (التجمع الخامس أو الشيخ زايد). هذا المكتب سيكون واجهة الشركة لاستقبال العملاء وعرض العينات.</li>
+                                </ul>
+                             </li>
+                             <li><strong>الاستثمار التكنولوجي:</strong> تخصيص جزء من الميزانية الأولية لشراء تراخيص أحدث برامج التصميم الهندسي (مثل 3ds Max, AutoCAD, V-Ray) لضمان تقديم تصاميم ثلاثية الأبعاد (Renders) عالية الجودة والواقعية، والتي تعتبر أداة البيع الأقوى في هذا المجال.</li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-accent pr-3">2. الاستراتيجية التسويقية الرقمية المركزة</h3>
+                         <ul class="list-disc list-inside space-y-2 text-gray-700">
+                             <li><strong>الموقع الإلكتروني كأداة أساسية:</strong> تطوير موقع إلكتروني احترافي يعرض سابقة الأعمال (البورتفوليو) بشكل جذاب، ويتضمن صفحات هبوط (Landing Pages) مخصصة لكل كومبوند مستهدف، مع نماذج تواصل واضحة لطلب عروض أسعار.</li>
+                             <li><strong>هيمنة على السوشيال ميديا:</strong> إدارة احترافية لصفحات Instagram و Facebook، مع التركيز على نشر صور وفيديوهات عالية الجودة للمشاريع المنفذة (قبل وبعد)، وعرضيات (Reels) لعمليات التصميم، وشهادات العملاء. إطلاق حملات إعلانية مدفوعة تستهدف بدقة متناهية سكان وملاك الوحدات في الكومبوندات الجديدة.</li>
+                             <li><strong>التسويق بالمحتوى:</strong> إنشاء مدونة على الموقع الإلكتروني تقدم مقالات مفيدة للشريحة المستهدفة (مثال: "5 أفكار لاستغلال مساحة شقتك الـ 250 متر"، "كيف تختار أفضل خامات التشطيب لميزانيتك"). هذا يعزز من مكانة الشركة كخبير في المجال ويحسن من ترتيب الموقع في جوجل (SEO).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+             <section id="budget" class="min-h-screen pt-20">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">الميزانية التشغيلية المفصلة (السنة الأولى)</h2>
+                <p class="mb-8 text-gray-700">هذا هو التفصيل المالي الدقيق لكيفية تخصيص الموارد خلال العام الأول. الميزانية مصممة لتعظيم العائد على الاستثمار من خلال التركيز على قنوات النمو وتقليل النفقات غير المباشرة في المرحلة الأولية.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-center">النصف الأول (الأشهر 1-6): مرحلة الانطلاق المرن</h3>
+                            <div class="space-y-4">
+                                <div class="budget-item p-3">
+                                    <div class="flex justify-between font-bold"><span>التسويق الرقمي (إعلانات)</span><span>25,000 ج.م/شهرياً</span></div>
+                                    <p class="text-sm text-gray-600">حملات مركزة على فيسبوك، انستغرام، وجوجل.</p>
+                                </div>
+                                <div class="budget-item p-3">
+                                    <div class="flex justify-between font-bold"><span>تطوير وإدارة الموقع والسوشيال ميديا</span><span>10,000 ج.م/شهرياً</span></div>
+                                    <p class="text-sm text-gray-600">تكلفة الوكالة أو الموظف المستقل المسؤول.</p>
+                                </div>
+                                <div class="budget-item p-3">
+                                    <div class="flex justify-between font-bold"><span>اشتراكات برامج التصميم</span><span>5,000 ج.م/شهرياً</span></div>
+                                    <p class="text-sm text-gray-600">تكلفة تراخيص البرامج الهندسية الأساسية.</p>
+                                </div>
+                                 <div class="budget-item p-3 bg-red-50 text-red-800">
+                                    <div class="flex justify-between font-bold"><span>إيجار المكتب</span><span>0 ج.م</span></div>
+                                </div>
+                                <div class="p-3 bg-blue-50 mt-4 rounded-lg">
+                                    <div class="flex justify-between font-extrabold text-lg text-primary"><span>إجمالي المصاريف الثابتة الشهرية</span><span>~40,000 ج.م</span></div>
+                                </div>
+                            </div>
+                        </div>
+                         <div>
+                            <h3 class="text-xl font-bold mb-4 text-center">النصف الثاني (الأشهر 7-12): مرحلة النمو والتوسع</h3>
+                            <div class="space-y-4">
+                               <div class="budget-item p-3">
+                                    <div class="flex justify-between font-bold"><span>التسويق الرقمي (إعلانات)</span><span>35,000 ج.م/شهرياً</span></div>
+                                    <p class="text-sm text-gray-600">زيادة الميزانية بعد تحقيق إيرادات أولية.</p>
+                                </div>
+                                <div class="budget-item p-3">
+                                    <div class="flex justify-between font-bold"><span>تطوير وإدارة الموقع والسوشيال ميديا</span><span>10,000 ج.م/شهرياً</span></div>
+                                    <p class="text-sm text-gray-600">ثابت.</p>
+                                </div>
+                                <div class="budget-item p-3">
+                                    <div class="flex justify-between font-bold"><span>اشتراكات برامج التصميم</span><span>5,000 ج.م/شهرياً</span></div>
+                                    <p class="text-sm text-gray-600">ثابت.</p>
+                                </div>
+                                 <div class="budget-item p-3 bg-green-50 text-green-800">
+                                    <div class="flex justify-between font-bold"><span>إيجار المكتب الجديد ومصاريفه</span><span>30,000 ج.م/شهرياً</span></div>
+                                     <p class="text-sm text-green-700">تقديري لمكتب في التجمع/زايد.</p>
+                                </div>
+                                <div class="p-3 bg-blue-50 mt-4 rounded-lg">
+                                    <div class="flex justify-between font-extrabold text-lg text-primary"><span>إجمالي المصاريف الثابتة الشهرية</span><span>~80,000 ج.م</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="mt-8 pt-4 border-t">
+                         <h3 class="text-xl font-bold mb-2">المصاريف المتغيرة (لكل مشروع)</h3>
+                         <p class="text-gray-700"><strong class="text-primary">أتعاب مهندس التصميم المستقل:</strong> سيتم تخصيص نسبة مئوية متفق عليها من قيمة عقد التصميم (عادة تتراوح بين 15% إلى 25% من قيمة التصميم) كأتعاب للمصمم. هذا يضمن أن تكون التكلفة مرتبطة مباشرة بحجم العمل والإيراد.</p>
+                     </div>
+                </div>
+            </section>
+            
+            <section id="phase2" class="min-h-screen pt-20">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">المرحلة الثانية (تبدأ من الشهر 18): التوسع الاستراتيجي نحو الفئة A+</h2>
+                <p class="mb-8 text-gray-700">بعد بناء أساس مالي وتشغيلي قوي، تبدأ مرحلة التوسع المحسوب. سنستغل السمعة الطيبة والتدفقات النقدية من المرحلة الأولى لإطلاق خط خدمة "Premium" يستهدف الشريحة الأعلى في السوق.</p>
+                 <div class="bg-white p-6 rounded-lg shadow-md space-y-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-secondary pr-3">خطة العمل لدخول سوق الفئة A+</h3>
+                    <p>الانتقال لاستهداف الفئة A+ يتطلب تحولاً في العقلية التشغيلية والتسويقية. الخطة تعتمد على بناء علامة تجارية فرعية، وتطوير قدرات الفريق، وتقديم تجربة عميل لا مثيل لها. الاستثمار في هذه المرحلة سيتم تمويله من أرباح المرحلة الأولى.</p>
+                 </div>
+            </section>
+
+            <section id="financials" class="min-h-screen pt-20">
+                 <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">النموذج المالي المرئي</h2>
+                <p class="mb-8 text-gray-700">تعكس هذه الرسوم البيانية التفاعلية التأثير المالي لاستراتيجيتنا المرحلية. لاحظ كيف تم تصميم هيكل النفقات في السنة الأولى لتحقيق أقصى قدر من الكفاءة، وكيف يتطور مزيج الإيرادات بمرور الوقت مع إدخال خدمات الفئة A+.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex flex-wrap justify-center gap-2 mb-6" id="financials-controls">
+                        <button data-chart="projections" class="btn-filter active py-2 px-5 bg-gray-200 rounded-full font-semibold">التوقعات (3 سنوات)</button>
+                        <button data-chart="budget" class="btn-filter py-2 px-5 bg-gray-200 rounded-full font-semibold">توزيع ميزانية السنة الأولى</button>
+                        <button data-chart="revenue" class="btn-filter py-2 px-5 bg-gray-200 rounded-full font-semibold">مزيج الإيرادات</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="financialChart"></canvas>
+                    </div>
+                    <p id="financial-text" class="text-center text-gray-500 mt-4"></p>
+                </div>
+            </section>
+
+            <section id="roadmap" class="min-h-screen pt-20">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">خارطة الطريق التنفيذية المحدثة</h2>
+                <p class="mb-8 text-gray-700">هذه هي الخطة التشغيلية خطوة بخطوة، وقد تم تحديثها لتعكس نموذج العمل المرن واستراتيجية المقر الإداري الجديدة.</p>
+                <div class="bg-white p-8 rounded-lg shadow-md space-y-10">
+                    <div class="roadmap-phase">
+                        <h3 class="text-xl font-bold mb-3">العام الأول: التأسيس والهيمنة (نموذج مرن)</h3>
+                        <p><strong>الربع الأول (شهور 1-3):</strong> إطلاق العمليات من المكتب الحالي. التعاقد مع أول 3-5 مصممين مستقلين لبناء شبكة العمل. إطلاق الحملات التسويقية المكثفة. تأمين أول مشروعين.</p>
+                        <p><strong>الربع الثاني (شهور 4-6):</strong> بناء الزخم. تحليل أداء الحملات. تسليم أول مشروع بنجاح. البدء في البحث عن مواقع للمكتب الجديد في التجمع/زايد.</p>
+                        <p><strong>الربع الثالث (شهور 7-9):</strong> التوسع التشغيلي. <strong>(في الشهر السابع)</strong> توقيع عقد إيجار المكتب الجديد وتجهيزه. نقل واجهة العمليات إلى المقر الجديد. زيادة ميزانية التسويق.</p>
+                        <p><strong>الربع الرابع (شهور 10-12):</strong> تحقيق الربحية. الوصول إلى نقطة التعادل. توسيع البورتفوليو الرقمي. وضع خطة تفصيلية للمرحلة الثانية.</p>
+                    </div>
+                     <div class="roadmap-phase">
+                        <h3 class="text-xl font-bold mb-3">العام الثاني والثالث: التحسين والتوسع نحو الريادة</h3>
+                        <p><strong>شهور 13-17:</strong> ترسيخ السمعة في سوق الفئة فوق المتوسطة. التحضير لإطلاق خدمات A+.</p>
+                        <p><strong>شهر 18 فصاعدًا:</strong> إطلاق خدمة "MY HOME EGY Private" والبدء في تنفيذ الاستراتيجية الخاصة بها كما هو مخطط.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const sharedChartOptions = {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { labels: { font: { family: "'Cairo', sans-serif", size: 12 }, color: '#1D2731' } }, tooltip: { titleFont: { family: "'Cairo', sans-serif" }, bodyFont: { family: "'Cairo', sans-serif" } } },
+        scales: { y: { ticks: { font: { family: "'Cairo', sans-serif" }, color: '#1D2731' }, grid: { color: 'rgba(0, 0, 0, 0.05)' } }, x: { ticks: { font: { family: "'Cairo', sans-serif" }, color: '#1D2731' }, grid: { display: false } } }
+    };
+
+    const financialData = {
+        projections: {
+            type: 'bar',
+            data: { labels: ['السنة الأولى', 'السنة الثانية', 'السنة الثالثة'], datasets: [{ label: 'الإيرادات (مليون جنيه)', data: [8, 15, 25], backgroundColor: '#0B3C5D', order: 2 }, { label: 'الأرباح (مليون جنيه)', data: [0.5, 3, 6], backgroundColor: '#76A665', borderColor: '#76A665', type: 'line', order: 1, fill: false, tension: 0.3 }] },
+            options: { ...sharedChartOptions, scales: { y: { beginAtZero: true } } },
+            text: "نمو قوي ومستدام مبني على الهيمنة على سوق الفئة فوق المتوسطة أولاً، ثم التوسع المدروس لزيادة الربحية من خلال مشاريع الفئة A+."
+        },
+        budget: {
+            type: 'bar',
+            data: { 
+                labels: ['الربع الأول', 'الربع الثاني', 'الربع الثالث', 'الربع الرابع'],
+                datasets: [
+                    { label: 'التسويق والتكنولوجيا', data: [120000, 120000, 150000, 150000], backgroundColor: '#328CC1' },
+                    { label: 'الإيجار والمصاريف الإدارية', data: [0, 0, 90000, 90000], backgroundColor: '#D9B310' },
+                ]
+            },
+            options: { ...sharedChartOptions, scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: value => (value / 1000) + ' ألف ج.م' } } } },
+            text: "يظهر توزيع الميزانية التركيز الكامل على التسويق في النصف الأول، مع إضافة تكاليف الإيجار في النصف الثاني. (لا يشمل أتعاب المصممين المتغيرة)."
+        },
+        revenue: {
+            type: 'bar',
+            data: { labels: ['السنة الأولى', 'السنة الثانية', 'السنة الثالثة'], datasets: [{ label: 'إيرادات فئة فوق المتوسطة', data: [100, 70, 50], backgroundColor: '#328CC1' }, { label: 'إيرادات فئة A+', data: [0, 30, 50], backgroundColor: '#0B3C5D' }] },
+            options: { ...sharedChartOptions, scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: value => value + '%' } } } },
+            text: "تظهر الخطة تركيزًا كاملاً (100٪) على الفئة فوق المتوسطة في السنة الأولى، ثم تحول استراتيجي في مزيج الإيرادات ليشمل الفئة A+ بشكل متزايد."
+        }
+    };
+    
+    const financialCtx = document.getElementById('financialChart').getContext('2d');
+    const financialText = document.getElementById('financial-text');
+    let financialChart = new Chart(financialCtx, financialData.projections);
+    financialText.textContent = financialData.projections.text;
+
+    const financialControls = document.getElementById('financials-controls');
+    financialControls.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            const chartType = e.target.dataset.chart;
+            if (financialData[chartType]) {
+                financialChart.destroy();
+                financialChart = new Chart(financialCtx, financialData[chartType]);
+                financialText.textContent = financialData[chartType].text;
+                financialControls.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        }
+    });
+
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('#sidebar-nav a');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -60% 0px', threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+});
+</script>
+</body>
+</html>
+
