@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY HOME EGY - الخطة التنفيذية والميزانية</title>
+    <title>MY HOME EGY - الخطة التنفيذية فائقة الكفاءة</title>
     <!-- Chosen Palette: Calm & Assured (#0B3C5D, #328CC1, #D9B310, #1D2731, F0F4F8) -->
-    <!-- Application Structure Plan: The SPA is now structured as a comprehensive operational playbook. A new, central section, "Detailed Operational Budget," has been added, which is the core of this update. The plan flows from a high-level strategy (Phase 1 goals) to the granular financial commitments needed to achieve it (the new budget section), and then outlines the long-term vision (Phase 2). This structure was chosen to directly answer the user's request for a detailed, category-specific budget, making the plan a practical tool for financial management and resource allocation from day one. -->
+    <!-- Application Structure Plan: The SPA is now structured as a comprehensive operational playbook. The key change is in the "Detailed Operational Budget," which has been completely restructured to show one-time startup costs vs. recurring monthly costs, reflecting the new budget details (equipment purchase, variable marketing spend, no software costs). The core principle of self-sufficiency after the initial push is now highlighted. This structure provides maximum clarity on the lean financial model. -->
     <!-- Visualization & Content Choices: 
-        - Phase 1 Operational Strategy: Goal: Inform. Method: Detailed text sections. Justification: Heavily revised to reflect the new freelancer-based staffing model and the two-stage office strategy (Haram then Tagamoa/Zayed), as requested.
-        - Detailed Operational Budget (New Section): Goal: Inform/Organize. Method: A structured HTML table-like layout. Justification: This provides the most clarity for a detailed, line-item budget, which is more effective than a chart for showing specific financial figures as requested by the user.
-        - Financial Model Charts: Goal: Compare/Inform. Method: A new interactive chart option, "First Year Budget Breakdown" (Stacked Bar Chart via Chart.js), was added. Justification: This new visualization complements the detailed budget table by providing a quick, graphical overview of how expenses are distributed across quarters, clearly showing the impact of rent starting in Q3.
-        - Execution Roadmap: Goal: Organize/Change. Method: The HTML timeline has been updated to include specific operational milestones like "Establish Freelancer Network" and "Secure New Office Lease." Justification: This makes the roadmap a more accurate reflection of the updated operational plan.
+        - Executive Summary: Goal: Inform. Method: Text updated to include the critical "self-sufficiency" principle, stating the project will fund its own operations after the initial phase.
+        - Detailed Operational Budget: Goal: Inform/Organize. Method: The HTML budget layout is redesigned to separate "One-Time Startup Costs" (Marketing Push + Equipment) from "Recurring Costs", providing a clearer financial picture as requested.
+        - Financial Model Charts: Goal: Compare/Inform. Method: The "First Year Budget Breakdown" chart (Chart.js) is significantly updated. The data now reflects the 25k marketing push in Month 1 and the 7k/month thereafter, plus the one-time equipment cost in Q1. The chart text explains this new, more complex financial reality. The software cost is removed.
+        - Execution Roadmap: Goal: Organize/Change. Method: The timeline remains focused on the conditional office lease, which aligns perfectly with the updated lean strategy.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,13 +48,13 @@
         <aside class="w-72 bg-gray-800 text-white min-h-screen p-4 fixed top-0 right-0 hidden md:block">
             <div class="text-center py-4">
                 <h1 class="text-2xl font-bold text-white">MY HOME EGY</h1>
-                <p class="text-sm text-gray-400">الخطة التنفيذية والميزانية</p>
+                <p class="text-sm text-gray-400">الخطة التنفيذية فائقة الكفاءة</p>
             </div>
             <nav id="sidebar-nav" class="mt-8">
                 <a href="#summary" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">الموجز التنفيذي</a>
-                <a href="#phase1" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">المرحلة الأولى: الاستراتيجية</a>
+                <a href="#phase1" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">استراتيجية المرحلة الأولى</a>
                 <a href="#budget" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">الميزانية التشغيلية المفصلة</a>
-                <a href="#phase2" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">المرحلة الثانية: التوسع</a>
+                <a href="#phase2" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">استراتيجية المرحلة الثانية</a>
                 <a href="#financials" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">النموذج المالي المرئي</a>
                 <a href="#roadmap" class="sidebar-link block py-3 px-4 mb-2 rounded-r-lg hover:bg-gray-700">خارطة الطريق التنفيذية</a>
             </nav>
@@ -62,124 +62,100 @@
 
         <main class="w-full md:mr-72 p-4 sm:p-8">
             <section id="summary" class="min-h-screen pt-12">
-                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">الموجز التنفيذي: استراتيجية الانطلاق المرن</h2>
-                <p class="mb-8 text-gray-700 leading-relaxed">تعتمد هذه الخطة المحدثة على مبدأ "الانطلاق المرن" (Lean Startup)، حيث يتم تقليل النفقات الثابتة الأولية إلى أقصى حد لتعظيم الاستثمار في قنوات النمو المباشر. <strong>خلال الأشهر الستة الأولى</strong>، سنعمل من مكتب قائم وبدون موظفين تصميم بدوام كامل، مع تركيز 100% من الموارد المالية على التسويق الرقمي الفعال، تطوير الموقع الإلكتروني، وشراء أفضل برامج التصميم. هذا النهج يضمن إدارة ممتازة للتدفقات النقدية، ويسمح للشركة ببناء قاعدة عملاء قوية قبل الانتقال إلى مكتب جديد وتوسيع الفريق في <strong>الشهر السابع</strong>.</p>
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">الموجز التنفيذي: استراتيجية النمو الذاتي</h2>
+                <p class="mb-8 text-gray-700 leading-relaxed">تتبنى هذه الخطة مبدأ "النمو الذاتي"، حيث تم تصميمها ليكون المشروع قادراً على تمويل عملياته بنفسه بعد فترة الانطلاق الأولية. سيتم استثمار رأس المال المبدئي في دفعة تسويقية قوية وشراء المعدات الأساسية. بعد ذلك، سيتم تغطية كافة المصاريف التشغيلية من إيرادات المشاريع. سننطلق من <strong>مكتب الهرم كنقطة تعاقدات ومقابلات</strong> بنظام تكلفة متغيرة، مما يلغي تماماً مصاريف الإيجار الثابتة. قرار استئجار مقر جديد هو <strong>قرار استراتيجي مرتبط بالنمو والأرباح المحققة</strong>، ويمكن اتخاذه في الربع الثالث من العام الأول أو تأجيله لبداية العام الثاني حسب ظروف العمل.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="stat-card p-6 rounded-lg shadow-md">
-                        <h3 class="text-gray-500 font-bold">نموذج العمل الأولي</h3>
-                        <p class="text-2xl font-extrabold mt-2" style="color: var(--primary);">مصممون مستقلون (Freelance)</p>
+                        <h3 class="text-gray-500 font-bold">نموذج التمويل</h3>
+                        <p class="text-2xl font-extrabold mt-2" style="color: var(--primary);">تمويل ذاتي بعد الانطلاق</p>
                     </div>
                     <div class="stat-card p-6 rounded-lg shadow-md">
-                        <h3 class="text-gray-500 font-bold">إيجار المكتب (أول 6 أشهر)</h3>
-                        <p class="text-3xl font-extrabold mt-2" style="color: var(--primary);">0 جنيه</p>
+                        <h3 class="text-gray-500 font-bold">قرار استئجار مكتب جديد</h3>
+                        <p class="text-2xl font-extrabold mt-2" style="color: var(--primary);">مشروط بالنمو</p>
                     </div>
                     <div class="stat-card p-6 rounded-lg shadow-md">
-                        <h3 class="text-gray-500 font-bold">التركيز الاستثماري الأساسي</h3>
-                        <p class="text-2xl font-extrabold mt-2" style="color: var(--primary);">التسويق الرقمي والتكنولوجيا</p>
+                        <h3 class="text-gray-500 font-bold">برامج التصميم</h3>
+                        <p class="text-2xl font-extrabold mt-2" style="color: var(--primary);">مسؤولية المصممين</p>
                     </div>
                 </div>
             </section>
 
             <section id="phase1" class="min-h-screen pt-20">
-                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">المرحلة الأولى: استراتيجية الهيمنة على سوق الفئة فوق المتوسطة</h2>
-                <p class="mb-8 text-gray-700">هذه هي مرحلة بناء الأساس الصلب. سنوظف خبرتنا السابقة مع هذه الشريحة، مع تطبيق نموذج عمل محدث وأكثر كفاءة لضمان تحقيق أسرع اختراق ممكن للسوق.</p>
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">المرحلة الأولى: الاستراتيجية التشغيلية فائقة المرونة</h2>
+                <p class="mb-8 text-gray-700">الهدف هو تحقيق أقصى قدر من الكفاءة. من خلال تقليل الالتزامات الثابتة، نحرر رأس المال للاستثمار في جذب العملاء وتقديم جودة لا تضاهى، مما يسرّع من وتيرة النمو وبناء السمعة.</p>
                 <div class="bg-white p-6 rounded-lg shadow-md space-y-6">
                     <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-accent pr-3">1. الاستراتيجية التشغيلية المفصلة</h3>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-accent pr-3">1. استراتيجية المقر الإداري ونموذج التكلفة</h3>
                          <ul class="list-disc list-inside space-y-2 text-gray-700">
-                             <li><strong>نموذج التوظيف:</strong> الاعتماد بشكل كامل على شبكة من مهندسي التصميم الداخلي المستقلين (Freelancers) الذين يتمتعون بموهبة وخبرة مثبتة. يتم التعاقد معهم على أساس كل مشروع على حدة، مما يوفر مرونة هائلة ويحول التكاليف الثابتة (الرواتب) إلى تكاليف متغيرة مرتبطة مباشرة بالإيرادات.</li>
-                             <li><strong>استراتيجية المقر الإداري:</strong>
-                                <ul class="list-['-_'] list-inside pr-4 mt-2 space-y-1">
-                                    <li><strong>الأشهر 1-6:</strong> استخدام المكتب القديم القائم بمنطقة الهرم لإتمام الإجراءات الورقية والتعاقدات فقط. لن يتم استقبال عملاء في هذا المقر. هذه الخطوة تلغي تماماً تكلفة الإيجار والمصاريف المرتبطة به في الفترة الحرجة الأولى.</li>
-                                    <li><strong>بداية من الشهر السابع:</strong> البدء في استئجار مكتب تمثيلي (Showroom Office) بمساحة صغيرة ولكن في موقع حيوي ومناسب للشريحة المستهدفة (التجمع الخامس أو الشيخ زايد). هذا المكتب سيكون واجهة الشركة لاستقبال العملاء وعرض العينات.</li>
-                                </ul>
-                             </li>
-                             <li><strong>الاستثمار التكنولوجي:</strong> تخصيص جزء من الميزانية الأولية لشراء تراخيص أحدث برامج التصميم الهندسي (مثل 3ds Max, AutoCAD, V-Ray) لضمان تقديم تصاميم ثلاثية الأبعاد (Renders) عالية الجودة والواقعية، والتي تعتبر أداة البيع الأقوى في هذا المجال.</li>
-                        </ul>
+                             <li><strong>مركز عمليات الهرم:</strong> سيكون مكتب الهرم هو المقر الرسمي للشركة خلال المرحلة الأولى. سيتم استخدامه حصراً لتوقيع العقود وعقد الاجتماعات الرسمية مع العملاء الذين يفضلون المقابلة الشخصية في مقر الشركة.</li>
+                             <li><strong>نموذج التكلفة المتغيرة:</strong> بدلاً من الإيجار الثابت، سيتم الاتفاق مع ملاك مكتب الهرم على نموذج تعويض مرن، إما <strong>مبلغ مالي مقطوع عن كل عقد يتم توقيعه</strong> في المكتب، أو <strong>نسبة عمولة محددة</strong> من قيمة العقد. هذا يحول تكلفة المقر من مصروف ثابت إلى تكلفة متغيرة مرتبطة مباشرة بنجاح الصفقات.</li>
+                             <li><strong>خطة التوسع المشروطة:</strong> قرار استئجار مكتب جديد في التجمع الخامس أو الشيخ زايد هو قرار استراتيجي سيتم تقييمه باستمرار. سيتم اتخاذ هذه الخطوة فقط عندما يصل حجم العمل والتدفقات النقدية إلى مستوى مستدام يسمح بتغطية تكاليف الإيجار والمصاريف الإضافية دون التأثير على ربحية الشركة. <strong>الهدف هو الانتقال خلال الربع الثالث من العام الأول أو بداية العام الثاني كحد أقصى، بناءً على الأداء الفعلي.</strong></li>
+                         </ul>
                     </div>
-                     <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-accent pr-3">2. الاستراتيجية التسويقية الرقمية المركزة</h3>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-accent pr-3">2. نموذج العمل والموارد البشرية</h3>
                          <ul class="list-disc list-inside space-y-2 text-gray-700">
-                             <li><strong>الموقع الإلكتروني كأداة أساسية:</strong> تطوير موقع إلكتروني احترافي يعرض سابقة الأعمال (البورتفوليو) بشكل جذاب، ويتضمن صفحات هبوط (Landing Pages) مخصصة لكل كومبوند مستهدف، مع نماذج تواصل واضحة لطلب عروض أسعار.</li>
-                             <li><strong>هيمنة على السوشيال ميديا:</strong> إدارة احترافية لصفحات Instagram و Facebook، مع التركيز على نشر صور وفيديوهات عالية الجودة للمشاريع المنفذة (قبل وبعد)، وعرضيات (Reels) لعمليات التصميم، وشهادات العملاء. إطلاق حملات إعلانية مدفوعة تستهدف بدقة متناهية سكان وملاك الوحدات في الكومبوندات الجديدة.</li>
-                             <li><strong>التسويق بالمحتوى:</strong> إنشاء مدونة على الموقع الإلكتروني تقدم مقالات مفيدة للشريحة المستهدفة (مثال: "5 أفكار لاستغلال مساحة شقتك الـ 250 متر"، "كيف تختار أفضل خامات التشطيب لميزانيتك"). هذا يعزز من مكانة الشركة كخبير في المجال ويحسن من ترتيب الموقع في جوجل (SEO).</li>
-                        </ul>
+                            <li><strong>المصممون المستقلون:</strong> الاعتماد الكامل على شبكة من مهندسي التصميم المستقلين (Freelancers). هذا النموذج يلغي الحاجة لرواتب ثابتة، كما يفترض أن المصممين يمتلكون تراخيص برامج التصميم الخاصة بهم، مما يلغي هذا البند من المصاريف الثابتة للشركة في السنة الأولى.</li>
+                         </ul>
                     </div>
                 </div>
             </section>
             
              <section id="budget" class="min-h-screen pt-20">
-                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">الميزانية التشغيلية المفصلة (السنة الأولى)</h2>
-                <p class="mb-8 text-gray-700">هذا هو التفصيل المالي الدقيق لكيفية تخصيص الموارد خلال العام الأول. الميزانية مصممة لتعظيم العائد على الاستثمار من خلال التركيز على قنوات النمو وتقليل النفقات غير المباشرة في المرحلة الأولية.</p>
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">الميزانية التشغيلية المفصلة والمحدثة (السنة الأولى)</h2>
+                <p class="mb-8 text-gray-700">تعكس هذه الميزانية النموذج التشغيلي فائق الكفاءة. لاحظ تقسيم المصاريف إلى تكاليف تأسيس تدفع مرة واحدة، وتكاليف شهرية متكررة ومنخفضة.</p>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-xl font-bold mb-4 text-center">النصف الأول (الأشهر 1-6): مرحلة الانطلاق المرن</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="border-2 border-accent rounded-lg p-4 bg-gray-50">
+                            <h3 class="text-xl font-bold mb-4 text-center">تكاليف التأسيس (تدفع مرة واحدة)</h3>
                             <div class="space-y-4">
                                 <div class="budget-item p-3">
-                                    <div class="flex justify-between font-bold"><span>التسويق الرقمي (إعلانات)</span><span>25,000 ج.م/شهرياً</span></div>
-                                    <p class="text-sm text-gray-600">حملات مركزة على فيسبوك، انستغرام، وجوجل.</p>
+                                    <div class="flex justify-between font-bold"><span>حملة التسويق المكثفة (الشهر الأول)</span><span>25,000 ج.م</span></div>
                                 </div>
                                 <div class="budget-item p-3">
-                                    <div class="flex justify-between font-bold"><span>تطوير وإدارة الموقع والسوشيال ميديا</span><span>10,000 ج.م/شهرياً</span></div>
-                                    <p class="text-sm text-gray-600">تكلفة الوكالة أو الموظف المستقل المسؤول.</p>
-                                </div>
-                                <div class="budget-item p-3">
-                                    <div class="flex justify-between font-bold"><span>اشتراكات برامج التصميم</span><span>5,000 ج.م/شهرياً</span></div>
-                                    <p class="text-sm text-gray-600">تكلفة تراخيص البرامج الهندسية الأساسية.</p>
-                                </div>
-                                 <div class="budget-item p-3 bg-red-50 text-red-800">
-                                    <div class="flex justify-between font-bold"><span>إيجار المكتب</span><span>0 ج.م</span></div>
+                                    <div class="flex justify-between font-bold"><span>معدات كهربائية وليزر وأدوات</span><span>15,000 ج.م</span></div>
                                 </div>
                                 <div class="p-3 bg-blue-50 mt-4 rounded-lg">
-                                    <div class="flex justify-between font-extrabold text-lg text-primary"><span>إجمالي المصاريف الثابتة الشهرية</span><span>~40,000 ج.م</span></div>
+                                    <div class="flex justify-between font-extrabold text-lg text-primary"><span>إجمالي تكاليف التأسيس</span><span>40,000 ج.م</span></div>
                                 </div>
                             </div>
                         </div>
-                         <div>
-                            <h3 class="text-xl font-bold mb-4 text-center">النصف الثاني (الأشهر 7-12): مرحلة النمو والتوسع</h3>
+                        <div class="border-2 border-gray-200 rounded-lg p-4">
+                            <h3 class="text-xl font-bold mb-4 text-center">المصاريف الشهرية المتكررة (بداية من الشهر الثاني)</h3>
                             <div class="space-y-4">
                                <div class="budget-item p-3">
-                                    <div class="flex justify-between font-bold"><span>التسويق الرقمي (إعلانات)</span><span>35,000 ج.م/شهرياً</span></div>
-                                    <p class="text-sm text-gray-600">زيادة الميزانية بعد تحقيق إيرادات أولية.</p>
+                                    <div class="flex justify-between font-bold"><span>التسويق الرقمي (إعلانات)</span><span>7,000 ج.م</span></div>
                                 </div>
                                 <div class="budget-item p-3">
-                                    <div class="flex justify-between font-bold"><span>تطوير وإدارة الموقع والسوشيال ميديا</span><span>10,000 ج.م/شهرياً</span></div>
-                                    <p class="text-sm text-gray-600">ثابت.</p>
+                                    <div class="flex justify-between font-bold"><span>إدارة الموقع والسوشيال ميديا</span><span>10,000 ج.م</span></div>
                                 </div>
-                                <div class="budget-item p-3">
-                                    <div class="flex justify-between font-bold"><span>اشتراكات برامج التصميم</span><span>5,000 ج.م/شهرياً</span></div>
-                                    <p class="text-sm text-gray-600">ثابت.</p>
-                                </div>
-                                 <div class="budget-item p-3 bg-green-50 text-green-800">
-                                    <div class="flex justify-between font-bold"><span>إيجار المكتب الجديد ومصاريفه</span><span>30,000 ج.م/شهرياً</span></div>
-                                     <p class="text-sm text-green-700">تقديري لمكتب في التجمع/زايد.</p>
+                                <div class="budget-item p-3 bg-yellow-50 text-yellow-800">
+                                    <div class="flex justify-between font-bold"><span>تكلفة استخدام مكتب الهرم (متغيرة)</span><span>~5,000 ج.م</span></div>
                                 </div>
                                 <div class="p-3 bg-blue-50 mt-4 rounded-lg">
-                                    <div class="flex justify-between font-extrabold text-lg text-primary"><span>إجمالي المصاريف الثابتة الشهرية</span><span>~80,000 ج.م</span></div>
+                                    <div class="flex justify-between font-extrabold text-lg text-primary"><span>الإجمالي الشهري المتكرر</span><span>~22,000 ج.م</span></div>
                                 </div>
-                            </div>
+                             </div>
                         </div>
                     </div>
                      <div class="mt-8 pt-4 border-t">
-                         <h3 class="text-xl font-bold mb-2">المصاريف المتغيرة (لكل مشروع)</h3>
-                         <p class="text-gray-700"><strong class="text-primary">أتعاب مهندس التصميم المستقل:</strong> سيتم تخصيص نسبة مئوية متفق عليها من قيمة عقد التصميم (عادة تتراوح بين 15% إلى 25% من قيمة التصميم) كأتعاب للمصمم. هذا يضمن أن تكون التكلفة مرتبطة مباشرة بحجم العمل والإيراد.</p>
+                         <h3 class="text-xl font-bold mb-2 text-center text-green-700">بند إضافي مشروط بالنمو</h3>
+                         <p class="text-center text-gray-700"><strong>إيجار المكتب الجديد ومصاريفه (+30,000 ج.م شهرياً):</strong> يتم تفعيل هذا البند فقط بعد اتخاذ قرار استراتيجي بالانتقال لمقر جديد، بناءً على الأرباح المحققة.</p>
                      </div>
                 </div>
             </section>
             
             <section id="phase2" class="min-h-screen pt-20">
-                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">المرحلة الثانية (تبدأ من الشهر 18): التوسع الاستراتيجي نحو الفئة A+</h2>
-                <p class="mb-8 text-gray-700">بعد بناء أساس مالي وتشغيلي قوي، تبدأ مرحلة التوسع المحسوب. سنستغل السمعة الطيبة والتدفقات النقدية من المرحلة الأولى لإطلاق خط خدمة "Premium" يستهدف الشريحة الأعلى في السوق.</p>
-                 <div class="bg-white p-6 rounded-lg shadow-md space-y-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-secondary pr-3">خطة العمل لدخول سوق الفئة A+</h3>
-                    <p>الانتقال لاستهداف الفئة A+ يتطلب تحولاً في العقلية التشغيلية والتسويقية. الخطة تعتمد على بناء علامة تجارية فرعية، وتطوير قدرات الفريق، وتقديم تجربة عميل لا مثيل لها. الاستثمار في هذه المرحلة سيتم تمويله من أرباح المرحلة الأولى.</p>
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">المرحلة الثانية (تبدأ من الشهر 18): استراتيجية التوسع</h2>
+                <p class="mb-8 text-gray-700">بعد النجاح في المرحلة الأولى، سيتم تفعيل خطة التوسع نحو الفئة A+ بتمويل من الأرباح المحققة، مما يضمن نمواً صحياً ومستداماً دون الحاجة إلى استثمارات خارجية إضافية.</p>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-gray-800">ستبقى خطة العمل لدخول سوق الفئة A+ كما هي، حيث تعتمد على بناء علامة تجارية فرعية وتطوير قدرات الفريق وتقديم تجربة عميل استثنائية.</h3>
                  </div>
             </section>
 
             <section id="financials" class="min-h-screen pt-20">
-                 <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">النموذج المالي المرئي</h2>
-                <p class="mb-8 text-gray-700">تعكس هذه الرسوم البيانية التفاعلية التأثير المالي لاستراتيجيتنا المرحلية. لاحظ كيف تم تصميم هيكل النفقات في السنة الأولى لتحقيق أقصى قدر من الكفاءة، وكيف يتطور مزيج الإيرادات بمرور الوقت مع إدخال خدمات الفئة A+.</p>
+                 <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">النموذج المالي المرئي (محدث)</h2>
+                <p class="mb-8 text-gray-700">تم تحديث الرسوم البيانية لتعكس هيكل التكاليف الجديد فائق الكفاءة. لاحظ الدفعة الأولية في الربع الأول، تليها مصاريف تشغيلية منخفضة ومستقرة، مما يسرّع من الوصول إلى نقطة التعادل والتمويل الذاتي.</p>
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex flex-wrap justify-center gap-2 mb-6" id="financials-controls">
                         <button data-chart="projections" class="btn-filter active py-2 px-5 bg-gray-200 rounded-full font-semibold">التوقعات (3 سنوات)</button>
@@ -194,19 +170,19 @@
             </section>
 
             <section id="roadmap" class="min-h-screen pt-20">
-                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">خارطة الطريق التنفيذية المحدثة</h2>
-                <p class="mb-8 text-gray-700">هذه هي الخطة التشغيلية خطوة بخطوة، وقد تم تحديثها لتعكس نموذج العمل المرن واستراتيجية المقر الإداري الجديدة.</p>
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">خارطة الطريق التنفيذية (محدثة)</h2>
+                <p class="mb-8 text-gray-700">تم تعديل الجدول الزمني ليعكس القرار الاستراتيجي المرتبط بالمقر الإداري الجديد، مما يجعل الخطة أكثر واقعية وقابلية للتكيف مع ظروف السوق.</p>
                 <div class="bg-white p-8 rounded-lg shadow-md space-y-10">
                     <div class="roadmap-phase">
                         <h3 class="text-xl font-bold mb-3">العام الأول: التأسيس والهيمنة (نموذج مرن)</h3>
-                        <p><strong>الربع الأول (شهور 1-3):</strong> إطلاق العمليات من المكتب الحالي. التعاقد مع أول 3-5 مصممين مستقلين لبناء شبكة العمل. إطلاق الحملات التسويقية المكثفة. تأمين أول مشروعين.</p>
-                        <p><strong>الربع الثاني (شهور 4-6):</strong> بناء الزخم. تحليل أداء الحملات. تسليم أول مشروع بنجاح. البدء في البحث عن مواقع للمكتب الجديد في التجمع/زايد.</p>
-                        <p><strong>الربع الثالث (شهور 7-9):</strong> التوسع التشغيلي. <strong>(في الشهر السابع)</strong> توقيع عقد إيجار المكتب الجديد وتجهيزه. نقل واجهة العمليات إلى المقر الجديد. زيادة ميزانية التسويق.</p>
-                        <p><strong>الربع الرابع (شهور 10-12):</strong> تحقيق الربحية. الوصول إلى نقطة التعادل. توسيع البورتفوليو الرقمي. وضع خطة تفصيلية للمرحلة الثانية.</p>
+                        <p><strong>الربع الأول (شهور 1-3):</strong> الانطلاق الرسمي من مكتب الهرم. شراء المعدات. إطلاق الحملة التسويقية المكثفة. بناء شبكة المصممين. تأمين أول مشروعين.</p>
+                        <p><strong>الربع الثاني (شهور 4-6):</strong> بناء الزخم. تسليم أول مشروع بنجاح. البدء في تقييم الأداء المالي لتحديد جدوى استئجار مكتب جديد.</p>
+                        <p><strong>الربع الثالث (شهور 7-9):</strong> نقطة القرار. <strong>بناءً على الأداء، يتم اتخاذ قرار:</strong> إما الاستمرار بالعمل من مكتب الهرم، أو البدء في إجراءات استئجار وتجهيز المكتب الجديد في التجمع/زايد.</p>
+                        <p><strong>الربع الرابع (شهور 10-12):</strong> تحقيق الربحية والتمويل الذاتي. الوصول لنقطة التعادل التشغيلي. وضع خطة تفصيلية للمرحلة الثانية.</p>
                     </div>
                      <div class="roadmap-phase">
-                        <h3 class="text-xl font-bold mb-3">العام الثاني والثالث: التحسين والتوسع نحو الريادة</h3>
-                        <p><strong>شهور 13-17:</strong> ترسيخ السمعة في سوق الفئة فوق المتوسطة. التحضير لإطلاق خدمات A+.</p>
+                        <h3 class="text-xl font-bold mb-3">العام الثاني والثالث: التوسع نحو الريادة</h3>
+                        <p><strong>شهور 13-17:</strong> ترسيخ السمعة. في حال لم يتم الانتقال، يكون هذا هو الهدف الأساسي للفترة. التحضير لإطلاق خدمات A+.</p>
                         <p><strong>شهر 18 فصاعدًا:</strong> إطلاق خدمة "MY HOME EGY Private" والبدء في تنفيذ الاستراتيجية الخاصة بها كما هو مخطط.</p>
                     </div>
                 </div>
@@ -234,12 +210,12 @@ document.addEventListener('DOMContentLoaded', () => {
             data: { 
                 labels: ['الربع الأول', 'الربع الثاني', 'الربع الثالث', 'الربع الرابع'],
                 datasets: [
-                    { label: 'التسويق والتكنولوجيا', data: [120000, 120000, 150000, 150000], backgroundColor: '#328CC1' },
-                    { label: 'الإيجار والمصاريف الإدارية', data: [0, 0, 90000, 90000], backgroundColor: '#D9B310' },
+                    { label: 'تسويق، إدارة، ومعدات', data: [84000, 51000, 51000, 51000], backgroundColor: '#328CC1' },
+                    { label: 'مصاريف إدارية متغيرة (مكتب الهرم)', data: [15000, 15000, 15000, 15000], backgroundColor: '#D9B310' },
                 ]
             },
             options: { ...sharedChartOptions, scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: value => (value / 1000) + ' ألف ج.م' } } } },
-            text: "يظهر توزيع الميزانية التركيز الكامل على التسويق في النصف الأول، مع إضافة تكاليف الإيجار في النصف الثاني. (لا يشمل أتعاب المصممين المتغيرة)."
+            text: "يظهر الربع الأول تكاليف التأسيس (تسويق ومعدات). الأرباع التالية تظهر المصاريف الشهرية المنخفضة. تكلفة الإيجار (+90 ألف/ربع) إضافة محتملة."
         },
         revenue: {
             type: 'bar',
@@ -249,6 +225,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
+    // Recalculating Q1 budget for the chart
+    // Month 1: 25k (Marketing) + 10k (Mgmt) + 15k (Haram Var) + 15k (Equipment) = 65k
+    // Month 2: 7k (Marketing) + 10k (Mgmt) + 5k (Haram Var) = 22k
+    // Month 3: 7k (Marketing) + 10k (Mgmt) + 5k (Haram Var) = 22k
+    // Total Q1: 65k + 22k + 22k = 109k. Let's simplify for the chart.
+    // Total Marketing Q1: 25k + 7k + 7k = 39k.
+    // Total Mgmt Q1: 10k * 3 = 30k.
+    // Equipment Q1: 15k.
+    // Total Q1 Base Costs = 39k + 30k + 15k = 84k.
+    // Total Q2/3/4 Base Costs: (7k + 10k) * 3 = 51k.
+    // Haram Variable Costs per Quarter: 5k * 3 = 15k.
+    // This is correct in the chart data object above.
+
     const financialCtx = document.getElementById('financialChart').getContext('2d');
     const financialText = document.getElementById('financial-text');
     let financialChart = new Chart(financialCtx, financialData.projections);
