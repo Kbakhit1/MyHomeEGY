@@ -124,7 +124,7 @@
                         <h3 class="text-xl font-bold text-gray-800 mb-3 border-r-4 border-accent pr-3">2. خطة العمليات المحددة</h3>
                          <ul class="list-disc list-inside space-y-2 text-gray-700">
                              <li><strong>شبكة المصممين:</strong> بناء قاعدة بيانات تضم 10 مصممين مستقلين (فريلانسرز) تم التحقق من أعمالهم السابقة، وتوقيع اتفاقية إطارية معهم تحدد نسبة العمولة (15-25% من قيمة عقد التصميم) وآلية العمل.</li>
-                             <li><strong>التواصل مع العميل:</strong> إرسال تقرير أسبوعي موحد (PDF) لكل عميل كل يوم خميس، يتضمن: 3-5 صور عالية الجودة للتقدم، ملخص فيديو (30 ثانية)، تحديث الموقف المالي، وخطة الأسبوع التالي.</li>
+                             <li><strong>التواصل مع العميل:</strong> إرسال تقرير أسبوعي موحد (PDF) لكل عميل كل يوم خميس، يحتوي على: 3-5 صور عالية الجودة للتقدم، ملخص فيديو (30 ثانية)، تحديث الموقف المالي، وخطة الأسبوع التالي.</li>
                          </ul>
                     </div>
                 </div>
@@ -148,7 +148,6 @@
                 <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">التكنولوجيا والذكاء الاصطناعي: محرك الابتكار</h2>
                 <p class="mb-8 text-gray-700">استخدامنا للأدوات التالية سيمنحنا ميزة تنافسية حاسمة في الجودة، السرعة، والشفافية.</p>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div>
                             <h3 class="text-xl font-bold text-gray-800 mb-3">1. الذكاء الاصطناعي في التصميم</h3>
@@ -250,13 +249,17 @@
     </div>
 
 <script>
+// This script is written in ES5 syntax for maximum browser compatibility.
 document.addEventListener('DOMContentLoaded', function() {
     var sharedChartOptions = {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                labels: { font: { family: "'Cairo', sans-serif", size: 12 }, color: '#1D2731' }
+                labels: {
+                    font: { family: "'Cairo', sans-serif", size: 12 },
+                    color: '#1D2731'
+                }
             },
             tooltip: {
                 titleFont: { family: "'Cairo', sans-serif" },
@@ -296,7 +299,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     tension: 0.3
                 }]
             },
-            options: Object.assign({}, sharedChartOptions, { scales: { y: { beginAtZero: true } } }),
+            options: Object.assign({}, sharedChartOptions, {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }),
             text: "نموذج مالي يظهر نمواً متسارعاً مدفوعاً بالتوسع في خدمات المصريين بالخارج والخدمات الدولية."
         },
         revenue: {
@@ -311,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     label: 'مشاريع مصريين بالخارج (في مصر)',
                     data: [40, 30, 25],
                     backgroundColor: '#D9B310'
-                },{
+                }, {
                     label: 'تصميم دولي (الخليج)',
                     data: [0, 20, 35],
                     backgroundColor: '#0B3C5D'
@@ -320,13 +327,20 @@ document.addEventListener('DOMContentLoaded', function() {
             options: Object.assign({}, sharedChartOptions, {
                 scales: {
                     x: { stacked: true },
-                    y: { stacked: true, ticks: { callback: function(value) { return value + '%'; } } }
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
                 }
             }),
             text: "يشكل المصريون بالخارج 40% من الإيرادات المستهدفة في العام الأول، مع نمو كبير لقطاع التصميم الدولي في العام الثاني والثالث."
         }
     };
-    
+
     var financialCtx = document.getElementById('financialChart').getContext('2d');
     var financialText = document.getElementById('financial-text');
     var financialChart = new Chart(financialCtx, financialData.projections);
